@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GIẢI PHƯƠNG TRÌNH BẬC 2</title>
+	</head>
+
+	<body>
+		<div style="justify-content: center;
+			display: grid;
+			grid-template-columns: auto;">
+
+			<h1>GIẢI PHƯƠNG TRÌNH BẬC 2</h1>
+			<h3>Phương trình có dạng: a.x^2 + b.x + c = 0</h3><br>
+
+			<label> Hệ số a:
+				<input type="input" id="inp1" onchange="update_value()" placeholder="Hãy nhập vào hệ số a" value="">
+			</label><br>
+
+			<label> Hệ số b:
+				<input type="input" id="inp2" onchange="update_value()" placeholder="Hãy nhập vào hệ số b" value="">
+			</label><br>
+
+			<label> Hệ số c:
+				<input type="input" id="inp3" onchange="update_value()" placeholder="Hãy nhập vào hệ số c" value="">
+			</label><br>
+
+			<label>
+				<input type="button" id="bt_kq" onchange="update_value()" value="KẾT QUẢ">
+			</label>
+
+			<!-- Kết quả phép toán -->
+			<p id="kq"></p>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" lang="javascript">
+	function update_value() {
+		var a, b, c, x1, x2, delta;
+
+		// lấy hệ số a
+		const tmp_inp1 = document.getElementById("inp1").value;
+		a = parseFloat(tmp_inp1);
+
+		// lấy hệ số b
+		const tmp_inp2 = document.getElementById("inp2").value;
+		b = parseFloat(tmp_inp2);
+
+		// Lấy hệ số c
+		const tmp_inp3 = document.getElementById("inp3").value;
+		c = parseFloat(tmp_inp3);
+
+		// Hiển thị kết quả
+		const kq = document.getElementById("kq");
+		if (isNaN(a) || isNaN(b) || isNaN(c)) {
+			alert("Vui lòng nhập đủ 3 hệ số a, b, c!");
+		}
+		else {
+			delta = b * b - 4 * a * c;
+
+			if (delta < 0)
+				kq.innerHTML = "Phương trình vô nghiệm";
+			else if (delta == 0) {
+				const x = -(b / (2 * a));
+				kq.innerHTML = "Phương trình có nghiệp kép: x = " + x;
+			}
+			else if (delta > 0) {
+				x1 = (-b + Math.sqrt(delta)) / (2 * a);
+				x2 = (-b - Math.sqrt(delta)) / (2 * a);
+				kq.innerHTML = "Phương trình có 2 nghiệm: x1 = " + x1 + " và x2 = " + x2;
+			}
+		}
+	}
+</script>
+</html>

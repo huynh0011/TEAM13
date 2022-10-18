@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Giải phương trình bậc 1 </title>
+</head>
+<body style="text-align: center; font-size: 20px; background-color: lemonchiffon;">
+	<h1>Giải phương trình bậc 1 (Nhóm )</h1>
+  <form>
+    Nhập số a: <input type="text" id="a" value="" /><br>
+    Nhập số b: <input type="text" id="b" value="" /><br><br>
+    <p>Phương trình bậc nhất: ax + b = 0</p>
+    <input type="button" id="solveBtnBac1" value="Nghiệm" /><br>
+    <span id="result"></span> <br><br>
+  </form>
+   <script>
+    var buttonBac1=document.getElementById('solveBtnBac1');
+    solveBtnBac1.onclick=function() {
+      let tmp_a=document.getElementById('a').value;
+      let tmp_b=document.getElementById('b').value;
+
+      if((tmp_a==""||tmp_b=="")||(isNaN(tmp_a)||isNaN(tmp_b))) {
+        alert("Vui lòng nhập số a và b");
+      }
+      else {
+        tmp_a=Number(tmp_a);
+        tmp_b=Number(tmp_b);
+        giai_pt_bac_1(tmp_a,tmp_b);
+      }
+    }
+
+    function giai_pt_bac_1(a,b) {
+      var result=document.getElementById("result");
+      if(a==0&&b==0) {
+        alert('Phương trình vô số nghiệm');
+        result.innerHTML='Phương trình vô số nghiệm';
+      }
+      else if(a!=0&&b==0) {
+        alert('Phương trình có nghiệm x = 0');
+        result.innerHTML='Phương trình có nghiệm x = 0';
+      }
+      else if(a==0&&b!=0) {
+        alert("Phương trình vô nghiệm");
+        result.innerHTML="Phương trình vô nghiệm";
+      }
+      else {
+        alert('Phương trình có nghiệm x = '+(-b/a));
+        result.innerHTML='Phương trình có nghiệm x = '+(-b/a);
+      }
+    }
+  </script>
+
+</body>
+</html>

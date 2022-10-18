@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	
+	<!-- <p id="content-p">KC326</p>
+    <p id="content-p1">KC326</p>
+<script>
+// const element = document.getElementById("content-p");
+// console.log("Gía trị của elememt la:")
+// element.innerHTML = "Công nghệ IoT và Ứng dụng";
+element = document.getElementsByTagName("p");
+element[0].innerText = "Công nghệ IoT và Ứng dụng";
+element[0].innerText ="123456";
+console.log(element);
+</script> -->
+
+	<div style="justify-content: center;
+				display: grid;
+				grid-template-columns: auto;">
+		<label> Số hạng 1:
+            <br>
+			<input type="input" id="inp1" 
+		    	onchange="update_value()"
+		     	placeholder="0"
+		     	value="0">
+	     </label>
+	    <br>
+	    Số hạng 2:
+	    <input type="input" id="inp2" 
+	    	onchange="update_value()"
+	     	placeholder="0"
+	     	value="0">
+
+	    <p id="p1"> Tổng của hai số là : </p>
+	</div>
+
+	<script type="text/javascript">
+	    function update_value() {
+	    	// lấy số thứ nhất
+	        const tmp_inp1 = document.getElementById("inp1").value;
+	        sh1 = parseInt(tmp_inp1);
+
+	        // lấy số thứ hai
+	        const tmp_inp2 = document.getElementById("inp2").value;
+	        sh2 = parseInt(tmp_inp2);
+
+	        // Hiển thị kết quả
+	        const kq1 = document.getElementById("p1");
+	        if (isNaN(parseInt(tmp_inp1)) || isNaN(parseInt(tmp_inp2))) {
+	            alert("Vui lòng nhập một số");
+	        } else {
+	            kq1.innerHTML = "Bạn vừa nhập: " + (sh1+sh2);
+	        }
+	    }
+	</script>
+
+	
+</body>
+</html>
+
+
